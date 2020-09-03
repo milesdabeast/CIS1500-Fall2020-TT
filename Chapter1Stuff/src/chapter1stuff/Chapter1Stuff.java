@@ -26,6 +26,8 @@ public class Chapter1Stuff {
         
         System.out.println("Your favorite number is: " + favoriteNumber);
         
+        // if you like more comments, please holla
+        // the 7*7 will get evaluated and then added to the output
         System.out.println("7 squared is: " + 7 * 7);
         
     }   
