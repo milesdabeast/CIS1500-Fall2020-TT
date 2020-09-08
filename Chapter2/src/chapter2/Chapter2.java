@@ -78,6 +78,34 @@ public class Chapter2 {
         name = keyboard.nextLine();
         
         System.out.println("Hello " + name + ", nice to meet you!");
+        
+        System.out.println("Please enter your Java Shop Order:");
+        String order = keyboard.nextLine();
+        
+        System.out.println("Enter the amount of money given to the cashier:");
+        double totalCashGiven = keyboard.nextDouble();
+        // grab the extra newline (enter key) on the input after using a nextSomeNumber()
+        keyboard.nextLine();
+        
+        System.out.println("Enter the amount of money given to the cashier:");
+        // gets the input as text and then converts
+        String totalCashGivenString = keyboard.nextLine();
+        totalCashGiven = Double.parseDouble(totalCashGivenString);
+        
+        System.out.println("Enter the amount of money given to the cashier:");
+        // a less verbose method
+        totalCashGiven = Double.parseDouble(keyboard.nextLine());
+        
+        // we're ignoring the text of order
+        double orderTotal = 5.75;
+        double changeDue = totalCashGiven - orderTotal;
+        
+        System.out.println("Your change is: " + changeDue);
+        
+        System.out.println("Do you want anything else?");
+        String moreJava = keyboard.nextLine();
+        
+        System.out.println("Here's your " + moreJava);
     }
     
 }
