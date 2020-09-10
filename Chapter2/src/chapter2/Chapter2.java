@@ -1,10 +1,13 @@
 package chapter2;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Chapter2 {
 
     public static void main(String[] args) {
+        final double SALES_TAX_RATE = .06;
+         
         System.out.println("Happy Tuesday!");
         // if you use print instead of println, add your own new lines with \n
         System.out.print("This is just a print statement\n");
@@ -77,13 +80,18 @@ public class Chapter2 {
         System.out.println("Please type in your name:");
         name = keyboard.nextLine();
         
+        
+        System.out.println("There are " + name.length() + " letters in your name!"); 
+        name += ", Sir";
         System.out.println("Hello " + name + ", nice to meet you!");
         
         System.out.println("Please enter your Java Shop Order:");
         String order = keyboard.nextLine();
+        double totalCashGiven;
         
+        /*
         System.out.println("Enter the amount of money given to the cashier:");
-        double totalCashGiven = keyboard.nextDouble();
+        totalCashGiven = keyboard.nextDouble();
         // grab the extra newline (enter key) on the input after using a nextSomeNumber()
         keyboard.nextLine();
         
@@ -91,21 +99,49 @@ public class Chapter2 {
         // gets the input as text and then converts
         String totalCashGivenString = keyboard.nextLine();
         totalCashGiven = Double.parseDouble(totalCashGivenString);
-        
+        */
+
         System.out.println("Enter the amount of money given to the cashier:");
         // a less verbose method
         totalCashGiven = Double.parseDouble(keyboard.nextLine());
         
         // we're ignoring the text of order
-        double orderTotal = 5.75;
-        double changeDue = totalCashGiven - orderTotal;
+        double orderTotal = 0;
+        orderTotal += 2.5;
+        // orderTotal = orderTotal + 2.5;
+        orderTotal += 1.25;
+        orderTotal += 1.0;
         
-        System.out.println("Your change is: " + changeDue);
+        //double orderTotalWithTax = orderTotal * SALES_TAX_RATE;
+        //orderTotal = orderTotal * SALES_TAX_RATE;
+        //orderTotal *= SALES_TAX_RATE;
+        
+        double orderTax = orderTotal * SALES_TAX_RATE;
+        
+        double orderGrandTotal = orderTax + orderTotal;
+        
+        double changeDue = totalCashGiven - orderGrandTotal;
+        
+        System.out.println("Order total:\t$" + orderTotal);
+        System.out.println("Tax:\t\t$" + orderTax);
+        System.out.println("Grand Total:\t$" + orderGrandTotal);
+        
+        System.out.println("Due to the national coin shortage, we are rounding your change up!");
+        System.out.println("Your change would have been: " + changeDue);
+        // I like to use a variable so we get the nice name and context
+        double roundedChangeDue = Math.ceil(changeDue);
+        
+        // you are welcome to re-assigning the variable with a new value
+        changeDue = Math.ceil(changeDue);
+        
+        System.out.println("Your change is: " + roundedChangeDue);
         
         System.out.println("Do you want anything else?");
         String moreJava = keyboard.nextLine();
         
         System.out.println("Here's your " + moreJava);
+        
+        JOptionPane.showMessageDialog(null, "Hello world!");
     }
     
 }
